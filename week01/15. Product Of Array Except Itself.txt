@@ -15,11 +15,7 @@ public:
             if(zeroCount>1){
                 res.push_back(0);
             }else if(zeroCount>0){
-                if(num==0){
-                    res.push_back(product);
-                }else{
-                    res.push_back(0);
-                }
+                res.push_back(num==0 ? product : 0);
             }else{
                 res.push_back(product/num);
             }
