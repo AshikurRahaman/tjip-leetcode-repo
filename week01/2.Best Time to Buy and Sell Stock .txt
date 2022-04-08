@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int buyDay = 0;
+        int sellDay = 0;
+        int largeProfit = 0;
+        for(int i=1;i<prices.size();i++){
+            if(prices[i]<prices[buyDay]){
+                buyDay = i;
+                sellDay =i;
+            }else if(prices[i]>prices[sellDay]){
+                sellDay = i;
+                if((prices[sellDay] - prices[buyDay])>largeProfit){
+                    largeProfit = prices[sellDay]-prices[buyDay];
+                }
+            }
+        }
+        return largeProfit;
+    }
+};
